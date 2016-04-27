@@ -111,6 +111,8 @@ app.controller("pageController", function ($scope, pageService, categoryService)
 
     $scope.errors = [];
     $scope.title = '';
+    
+    $scope.disableContent = false;
 
     $scope.pages = pageService.query();
 
@@ -137,6 +139,7 @@ app.controller("pageController", function ($scope, pageService, categoryService)
     };
 
     $scope.showAddDialog = function () {
+        $scope.disableContent = true;
         $scope.errors = [];
         $scope.title = 'Add Page';
         $scope.clearCurrentPage();
@@ -145,6 +148,7 @@ app.controller("pageController", function ($scope, pageService, categoryService)
     };
 
     $scope.showUpdateDialog = function () {
+        $scope.disableContent = false;
         $scope.errors = [];
         $scope.title = 'Update Page';
         $("#modal-dialog").modal('show');
